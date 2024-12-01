@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramayan Project</title>
+  <style>
+    /* CSS Styles */
+
+    /* Set the background color for the whole page */
+    /* Set the background color for the whole page */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #dd7f3c; /* Brown background */
+}
+
+/* Container for the slides */
+.slide-container {
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  text-align: center;
+  color: #fff; /* White text for better contrast on brown */
+}
+
+/* Style each slide */
+.slide {
+  display: none;
+  padding: 20px;
+  border-radius: 12px; /* Rounded corners for the slide */
+  background: rgba(255, 255, 255, 0.8); /* Light background for slides with some transparency */
+  color: #333; /* Dark color for slide text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 4px double #6B4226; /* Designful double border */
+  margin: 20px 0; /* Margin for spacing between slides */
+}
+
+.slide.active {
+  display: block;
+}
+
+/* Slide heading and text */
+.slide h1 {
+  font-size: 2em;
+  color: #6B4226; /* Darker brown for headings */
+}
+
+.slide p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #5D4037; /* Medium brown for text */
+}
+
+/* Image styling */
+.ramayan-image {
+  width: 80%;
+  max-width: 400px;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation buttons */
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #6B4226; /* Button color matching the theme */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+#prev {
+  left: 10px;
+}
+
+#next {
+  right: 10px;
+}
+
+/* Hover effect for buttons */
+button:hover {
+  background-color: #4E3B2D; /* Darker shade for hover effect */
+}
+
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <!-- Slides -->
+    <div class="slide active" id="introduction-slide">
+      <h1>Introduction to the Ramayana</h1>
+      <p>The <em>Ramayana</em> is one of the two great epics of Hindu literature, composed by the sage Valmiki. It tells the story of Prince Rama, his exile, and his journey to rescue his wife, Sita, from the demon king Ravana.</p>
+      <img src="ramayan-image.jpg" alt="Ramayana" class="ramayan-image">
+    </div>
+
+    <div class="slide">
+      <h1>Characters</h1>
+      <p>The Ramayana is filled with a wide array of characters, each with their own unique role and personality. Key figures include Rama, Sita, Lakshmana, Hanuman, and Ravana.</p>
+    </div>
+
+    <div class="slide">
+      <h1>The Birth of Rama</h1>
+      <p>Prince Rama was born in Ayodhya as the son of King Dasharatha and Queen Kaushalya. His birth marked the arrival of a noble soul destined to restore dharma.</p>
+    </div>
+
+    <div class="slide">
+      <h1>Rama's Exile</h1>
+      <p>Due to palace intrigue, Rama was exiled for 14 years. Joined by his wife Sita and brother Lakshmana, he left Ayodhya to fulfill his duty.</p>
+    </div>
+
+    <div class="slide">
+      <h1>The Abduction of Sita</h1>
+      <p>During their exile, Sita was abducted by the demon king Ravana, setting in motion the events that would lead to a great battle between good and evil.</p>
+    </div>
+
+    <div class="slide">
+      <h1>Hanuman's Devotion and Journey</h1>
+      <p>Hanuman, a loyal devotee of Rama, embarked on a daring journey to locate Sita in Lanka and bring back news of her safety.</p>
+    </div>
+
+    <div class="slide">
+      <h1>The Battle of Lanka</h1>
+      <p>The epic climax occurs with a fierce battle in Lanka where Rama, aided by Hanuman and his allies, confronts Ravana to rescue Sita.</p>
+    </div>
+
+    <div class="slide">
+      <h1>Return to Ayodhya</h1>
+      <p>After defeating Ravana, Rama and Sita returned to Ayodhya, where Rama was crowned king, symbolizing the triumph of good over evil.</p>
+    </div>
+
+    <div class="slide">
+      <h1>Legacy of the Ramayana</h1>
+      <p>The Ramayana continues to be an enduring symbol of virtue, devotion, and the fight against injustice in Hindu culture and beyond.</p>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button id="prev" onclick="changeSlide(-1)">Back</button>
+    <button id="next" onclick="changeSlide(1)">Next</button>
+  </div>
+
+  <script>
+    // JavaScript for Slide Navigation
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function changeSlide(direction) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + direction + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+  </script>
+</body>
+</html>
